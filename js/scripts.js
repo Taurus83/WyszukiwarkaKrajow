@@ -22,23 +22,21 @@ function showCountriesList(resp) {
 
 function showCountriesList(resp) {
     countriesList.empty();
-resp.forEach(function(item){
-    $('<li>').text(item.name).appendTo(countriesList);
-});
+    resp.forEach(function(item){
+        $('<li>').text(item.name).appendTo(countriesList);
+    });
 }
 
 //Show user location (country)
 var requestUrl = "http://ip-api.com/json";
 
-$.ajax({
+$.ajax( {
         url: requestUrl,
         method: 'GET',
-        success: function(json)
-    {
+        success: function(json) {
     console.log("Your country is: " + json.country);
     },
-    error: function(err)
-    {
+    error: function(err) {
     console.log("Request failed, error= " + err);
     }
 });
